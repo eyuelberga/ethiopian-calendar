@@ -20,5 +20,26 @@ namespace EthiopianCalendar
             return (1461 * (year + 4800 + (month - 14) / 12)) / 4 + (367 * (month - 2 - 12 * ((month - 14) / 12))) / 12 - (3 * ((year + 4900 + (month - 14) / 12) / 100)) / 4 + day - 32075;
 
         }
+
+        /// <summary>
+        /// Convert JDN(Julian Date Number) into Gregorian Date.
+        /// This is an algorithm by Richards to convert a Julian Day Number, to a date in the Gregorian calendar. 
+        /// Richards states the algorithm is valid for Julian day numbers greater than or equal to 0.
+        /// </summary>
+        /// <returns>The Gregorian Date array in the format [Day, Month, Year] </returns>
+        /// <param name="J">J.</param>
+        public static int[] JDNToGregorian(int J)
+        {
+
+            int f = (int)(J + (int)RICHARDS_PARA.j + ((int)(4 * J + RICHARDS_PARA.B) / 146097) * 3 / 4 + RICHARDS_PARA.C);
+            int e = (int)((int)RICHARDS_PARA.r * f + RICHARDS_PARA.v);
+            int g = e % (int)RICHARDS_PARA.p / (int)RICHARDS_PARA.r;
+            int h = (int)((int)RICHARDS_PARA.u * g + RICHARDS_PARA.w);
+            int day = h % (int)RICHARDS_PARA.s / (int)RICHARDS_PARA.u + 1;
+            int month = (h / (int)RICHARDS_PARA.s + (int)RICHARDS_PARA.m) % (int)RICHARDS_PARA.n + 1;
+            int year = (int)((e / (int)RICHARDS_PARA.p) - RICHARDS_PARA.y + (int)(RICHARDS_PARA.n + (int)RICHARDS_PARA.m - month) / (int)RICHARDS_PARA.n);
+            int[] date = { day, month, year };
+            return date;
+        }
     }
 }
