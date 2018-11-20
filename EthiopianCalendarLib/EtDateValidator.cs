@@ -15,5 +15,17 @@ namespace EthiopianCalendar
             return day >= (int)DATE_CONFIG.FIRST_DAY &&
             day <= (int)DATE_CONFIG.LAST_DAY;
         }
+
+
+        /// <summary>
+        /// check if the month is in a valid range
+        /// </summary>
+        /// <returns><c>true</c>, if valid month range was used, <c>false</c> otherwise.</returns>
+        /// <param name="month">Month.</param>
+        public static bool IsValidMonthRange(int month)
+        {
+            return month >= (int)DATE_CONFIG.FIRST_MONTH &&
+            month <= (int)DATE_CONFIG.LAST_MONTH;
+        }
     }
 }
