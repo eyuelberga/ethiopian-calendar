@@ -17,6 +17,9 @@ namespace EthiopianCalendar
         r = 4,
         B = 274277,
         p = 1461,
-        C = -38
+        C = -38,
+        one = 1,
+        four = 4,
+        hundredthousands = 146097
     }
 }
