@@ -27,5 +27,16 @@ namespace EthiopianCalendar
             return month >= (int)DATE_CONFIG.FIRST_MONTH &&
             month <= (int)DATE_CONFIG.LAST_MONTH;
         }
+
+        /// <summary>
+        /// Check if the day is in the valid range, considering it is the pagume month(the 13th month in the calendar)
+        /// </summary>
+        /// <returns><c>true</c>, if valid pagume day range was used, <c>false</c> otherwise.</returns>
+        /// <param name="day">Day.</param>
+        /// <param name="month">Month.</param>
+        public static bool IsValidPagumeDayRange(int day, int month)
+        {
+            return month == (int)DATE_CONFIG.LAST_MONTH ? day <= (int)DATE_CONFIG.PAGUME_LEAP_YEAR_LAST_DAY : IsValidDayRange(day);
+        }
     }
 }
