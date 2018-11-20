@@ -62,5 +62,17 @@ namespace EthiopianCalendar
  || IsLeapYear(year)
 ;
         }
+
+        /// <summary>
+        /// Check if the Date is valid.
+        /// </summary>
+        /// <returns><c>true</c>, if valid date was used, <c>false</c> otherwise.</returns>
+        /// <param name="day">Day.</param>
+        /// <param name="month">Month.</param>
+        /// <param name="year">Year.</param>
+        public static bool IsValid(int day, int month, int year)
+        {
+            return IsValidDayRange(day) && IsValidMonthRange(month) && IsValidPagumeDayRange(day, month) && IsValidLeapDay(day, month, year);
+        }
     }
 }
