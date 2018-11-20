@@ -17,7 +17,7 @@ namespace EthiopianCalendar
                 Month = month;
                 Year = year;
                 WeekDayNumber = Converter.EthiopianWeekDayNumber(day, month, year);
-
+                Special = Holiday.IsHoliday(this) ? Holiday.HolidayName(this) : null;
             }
             else
             {
