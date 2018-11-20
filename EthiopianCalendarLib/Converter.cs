@@ -177,5 +177,19 @@ namespace EthiopianCalendar
         }
 
 
+        /// <summary>
+        /// Finds the Week day form a Gregorian calendar date.
+        /// </summary>
+        /// <returns>The week day string</returns>
+        /// <param name="day">Day.</param>
+        /// <param name="month">Month.</param>
+        /// <param name="year">Year.</param>
+        public static string GregorianWeekDay(int day, int month, int year)
+        {
+            int index = GetWeekDayNumber(day, month, year);
+            return EnglishLocalized.GetWeekDayName(index);
+        }
+
+
     }
 }
