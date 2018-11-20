@@ -31,12 +31,12 @@ namespace EthiopianCalendar
         public static int[] JDNToGregorian(int J)
         {
 
-            int f = (int)(J + (int)RICHARDS_PARA.j + ((int)(4 * J + RICHARDS_PARA.B) / 146097) * 3 / 4 + RICHARDS_PARA.C);
+            int f = (int)(J + (int)RICHARDS_PARA.j + ((int)((int)RICHARDS_PARA.four * J + RICHARDS_PARA.B) / (int)RICHARDS_PARA.hundredthousands) * (int)RICHARDS_PARA.three / (int)RICHARDS_PARA.four + RICHARDS_PARA.C);
             int e = (int)((int)RICHARDS_PARA.r * f + RICHARDS_PARA.v);
             int g = e % (int)RICHARDS_PARA.p / (int)RICHARDS_PARA.r;
             int h = (int)((int)RICHARDS_PARA.u * g + RICHARDS_PARA.w);
-            int day = h % (int)RICHARDS_PARA.s / (int)RICHARDS_PARA.u + 1;
-            int month = (h / (int)RICHARDS_PARA.s + (int)RICHARDS_PARA.m) % (int)RICHARDS_PARA.n + 1;
+            int day = h % (int)RICHARDS_PARA.s / (int)RICHARDS_PARA.u + (int)RICHARDS_PARA.one;
+            int month = (h / (int)RICHARDS_PARA.s + (int)RICHARDS_PARA.m) % (int)RICHARDS_PARA.n + (int)RICHARDS_PARA.one;
             int year = (int)((e / (int)RICHARDS_PARA.p) - RICHARDS_PARA.y + (int)(RICHARDS_PARA.n + (int)RICHARDS_PARA.m - month) / (int)RICHARDS_PARA.n);
             int[] date = { day, month, year };
             return date;

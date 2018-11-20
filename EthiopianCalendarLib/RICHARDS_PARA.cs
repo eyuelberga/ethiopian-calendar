@@ -20,6 +20,7 @@ namespace EthiopianCalendar
         C = -38,
         one = 1,
         four = 4,
+        three  =3,
         hundredthousands = 146097
     }
 }
