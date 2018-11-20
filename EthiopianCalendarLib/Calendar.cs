@@ -47,9 +47,70 @@ namespace EthiopianCalendar
                 yield return date;
                 dayIncrement++;
             }
+        }
 
+        /// <summary>
+        /// Month date Calendar generator for selected month and year.
+        /// </summary>
+        /// <returns> a matrix (2d array) of date objects representing a month's calendar, with each row representing a week.</returns>
+        /// <param name="month">Month.</param>
+        /// <param name="year">Year.</param>
+        public Date[,] MonthDateCalendar(int month, int year)
+        {
+            IEnumerable<Date> dates = IterMonthDates(month, year);
+            IEnumerator<Date> date = dates.GetEnumerator();
+            date.MoveNext();
+            Date[,] matrix = NullMatrix(new Date[6, 7]);
+            int weekNum = date.Current.WeekDayNumber;
+            for (int row = 0; row < matrix.GetLength(0); row++)
+            {
+                for (int col = 0; col < matrix.GetLength(1) && date.MoveNext(); col++)
+                {
+                    if (row == 0)
+                    {
+                        if (col < weekNum)
+                        {
+                            continue;
+                        }
+                        if (col == weekNum)
+                        {
+                            date = dates.GetEnumerator();
+                            date.MoveNext();
+                            matrix[row, col] = date.Current;
+                        }
 
+                        if (col > weekNum)
+                        {
+                            matrix[row, col] = date.Current;
+                        }
+                    }
+                    else
+                    {
+                        matrix[row, col] = date.Current;
+                    }
+                }
+            }
+           
+            return matrix;
+        }
 
+        /// <summary>
+        /// Takes a two dimensional array and converts all the values into nulls.
+        /// </summary>
+        /// <returns>The matrix with all null values</returns>
+        /// <param name="matrix">Matrix. Two dimensional array</param>
+        public Date[,] NullMatrix(Date[,] matrix)
+        {
+            for (int row = 0; row < matrix.GetLength(0); row++)
+            {
+
+                for (int col = 0; col < matrix.GetLength(1); col++)
+                {
+                    matrix[row, col] = null;
+                }
+
+            }
+            return matrix;
         }
     }
 }
