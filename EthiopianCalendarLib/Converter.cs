@@ -119,5 +119,22 @@ namespace EthiopianCalendar
                 return null;
             }
         }
+
+        /// <summary>
+        /// Convert Ethiopian Date into Gregorian Date 
+        /// </summary>
+        /// <returns>The Gregorian Date array in the format [Day, Month, Year]</returns>
+        /// <param name="day">Day.</param>
+        /// <param name="month">Month.</param>
+        /// <param name="year">Year.</param>
+        /// <param name="era">Era. Defines if it is `Amete miheret` or `Amete alem`, 
+        /// the Ethiopian equivalents to A.D and B.C respectively.
+        /// Possible values are JDN_EPOCH_OFFSET.AMETE_MIHRET or JDN_EPOCH_OFFSET.AMETE_ALEM </param>
+        public static int[] EthiopianToGregorian(int day, int month, int year, int era = (int)JDN_EPOCH_OFFSET.AMETE_MIHRET)
+        {
+            int jdn = EthiopianToJDN(day, month, year, era);
+            return JDNToGregorian(jdn);
+        }
+
     }
 }
