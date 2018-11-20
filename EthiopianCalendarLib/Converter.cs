@@ -44,5 +44,25 @@ namespace EthiopianCalendar
             int[] date = { day, month, year };
             return date;
         }
+
+        /// <summary>
+        /// Convert JDN(Julian Date Number) into Ethiopian Date.
+        /// </summary>
+        /// <returns>The Ethiopian Date array in the format [Day, Month, Year] </returns>
+        /// <param name="jdn">Jdn.</param>
+        /// <param name="era">Era. Defines if it is `Amete miheret` or `Amete alem`, 
+        /// the Ethiopian equivalents to A.D and B.C respectively.
+        /// Possible values are JDN_EPOCH_OFFSET.AMETE_MIHRET or DN_EPOCH_OFFSET.AMETE_ALEM </param>
+        public static int[] JDNToEthiopian(int jdn, int era = (int)JDN_EPOCH_OFFSET.AMETE_MIHRET)
+        {
+            int r = (jdn - era) % 1461;
+            int n = (int)((r % 365) + 365 * Math.Floor((double)r / 1460));
+
+            int year = (int)(4 * Math.Floor((double)(jdn - era) / 1461) + Math.Floor((double)r / 365) - Math.Floor((double)r / 1460));
+            int month = (int)(Math.Floor((double)n / 30) + 1);
+            int day = n % 30 + 1;
+            int[] date = { day, month, year };
+            return date;
+        }
     }
 }
