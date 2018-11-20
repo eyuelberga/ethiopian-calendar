@@ -1,7 +1,7 @@
 ﻿using System;
 namespace EthiopianCalendarLib
 {
-    public enum EmptyEnumeration
+    public enum JDN_CONST
     {
     }
 }
