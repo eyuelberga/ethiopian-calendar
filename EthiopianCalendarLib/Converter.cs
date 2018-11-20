@@ -100,5 +100,24 @@ namespace EthiopianCalendar
             int jdn = GregorianToJDN(day, month, year);
             return JDNToEthiopian(jdn);
         }
+
+        /// <summary>
+        /// Convert Gregorian Date into Ethiopian Date
+        /// </summary>
+        /// <returns>The Ethiopian Date array in the format [Day, Month, Year]</returns>
+        /// <param name="dateArray">Date array, in the format [Day, Month, Year]</param>
+        public static int[] GregorianToEthiopian(int[] dateArray)
+        {
+            if (dateArray.Length == 3)
+            {
+                int jdn = GregorianToJDN(dateArray[0], dateArray[1], dateArray[2]);
+                return JDNToEthiopian(jdn);
+            }
+            else
+            {
+                // TODO Throw an error exception
+                return null;
+            }
+        }
     }
 }
