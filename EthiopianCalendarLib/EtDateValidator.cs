@@ -38,5 +38,16 @@ namespace EthiopianCalendar
         {
             return month == (int)DATE_CONFIG.LAST_MONTH ? day <= (int)DATE_CONFIG.PAGUME_LEAP_YEAR_LAST_DAY : IsValidDayRange(day);
         }
+
+        /// <summary>
+        /// Check if it is a leap year.
+        /// </summary>
+        /// <returns><c>true</c>, if leap year was used, <c>false</c> otherwise.</returns>
+        /// <param name="year">Year.</param>
+        public static bool IsLeapYear(int year)
+        {
+            return (year + 1) % 4 == 0;
+        }
+
     }
 }
