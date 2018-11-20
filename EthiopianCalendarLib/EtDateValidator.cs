@@ -6,6 +6,10 @@ namespace EthiopianCalendar
     /// </summary>
     static public class EtDateValidator
     {
+        /// <summary>
+        /// Check if the day is in a valid range
+        /// </summary>
+        /// <returns><c>true</c>, if valid day range was used, <c>false</c> otherwise.</returns>
         public static bool IsValidDayRange(int day)
         {
             return day >= (int)DATE_CONFIG.FIRST_DAY &&
