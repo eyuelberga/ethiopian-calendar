@@ -136,5 +136,29 @@ namespace EthiopianCalendar
             return JDNToGregorian(jdn);
         }
 
+        /// <summary>
+        /// Convert Ethiopian Date into Gregorian Date 
+        /// </summary>
+        /// <returns>he Gregorian Date array in the format [Day, Month, Year].</returns>
+        /// <param name="dateArray">Date array, in the format [Day, Month, Year].</param>
+        /// <param name="era">Era. Defines if it is `Amete miheret` or `Amete alem`, 
+        /// the Ethiopian equivalents to A.D and B.C respectively.
+        /// Possible values are JDN_EPOCH_OFFSET.AMETE_MIHRET or JDN_EPOCH_OFFSET.AMETE_ALEM </param>
+        public static int[] EthiopianToGregorian(int[] dateArray, int era = (int)JDN_EPOCH_OFFSET.AMETE_MIHRET)
+        {
+            if (dateArray.Length == 3)
+            {
+                int jdn = EthiopianToJDN(dateArray[0], dateArray[1], dateArray[2], era);
+                return JDNToGregorian(jdn);
+            }
+            else
+            {
+                // TODO Throw an error exception
+                return null;
+            }
+
+        }
+
+
     }
 }
