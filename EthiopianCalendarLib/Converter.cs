@@ -190,6 +190,32 @@ namespace EthiopianCalendar
             return EnglishLocalized.GetWeekDayName(index);
         }
 
+        /// <summary>
+        /// Finds the Week day form an Ethiopian calendar date.
+        /// </summary>
+        /// <returns>The week day string</returns>
+        /// <param name="day">Day.</param>
+        /// <param name="month">Month.</param>
+        /// <param name="year">Year.</param>
+        public static string EthiopianWeekDay(int day, int month, int year)
+        {
+            int[] date = EthiopianToGregorian(day, month, year);
+            int index = GetWeekDayNumber(date[0], date[1], date[2]);
+            return EthiopianLocalized.GetWeekDayName(index);
+        }
+        /// <summary>
+        /// Finds the Week day Number form an Ethiopian calendar date.
+        /// </summary>
+        /// <returns>The week day number.</returns>
+        /// <param name="day">Day.</param>
+        /// <param name="month">Month.</param>
+        /// <param name="year">Year.</param>
+        public static int EthiopianWeekDayNumber(int day, int month, int year)
+        {
+            int[] date = EthiopianToGregorian(day, month, year);
+            return GetWeekDayNumber(date[0], date[1], date[2]);
+        }
+
 
     }
 }
