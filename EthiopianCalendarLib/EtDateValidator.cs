@@ -49,5 +49,18 @@ namespace EthiopianCalendar
             return (year + 1) % 4 == 0;
         }
 
+        /// <summary>
+        /// Check if date is valid for a leap day. Leap days happen every leap year, when the 13th month extends from its 5 day range to 6 days.
+        /// </summary>
+        /// <returns><c>true</c>, if the date is valid, <c>false</c>if the date chossen was a leap day on the 13th month, but on a non-leap year </returns>
+        /// <param name="day">Day.</param>
+        /// <param name="month">Month.</param>
+        /// <param name="year">Year.</param>
+        public static bool IsValidLeapDay(int day, int month, int year)
+        {
+            return month != (int)DATE_CONFIG.LAST_MONTH || day != (int)DATE_CONFIG.PAGUME_LEAP_YEAR_LAST_DAY
+ || IsLeapYear(year)
+;
+        }
     }
 }
