@@ -42,6 +42,7 @@
     <Compile Include="JDN_EPOCH_OFFSET.cs" />
     <Compile Include="RICHARDS_PARA.cs" />
     <Compile Include="TextCalendar.cs" />
+    <Compile Include="JDN_CONST.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
