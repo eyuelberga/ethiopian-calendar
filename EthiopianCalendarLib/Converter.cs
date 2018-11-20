@@ -159,6 +159,23 @@ namespace EthiopianCalendar
 
         }
 
+        /// <summary>
+        /// Calculates the index of the week day, given a Gregorian calendar date
+        /// </summary>
+        /// <returns>The week day index.</returns>
+        /// <param name="day">Day.</param>
+        /// <param name="month">Month.</param>
+        /// <param name="year">Year.</param>
+        public static int GetWeekDayNumber(int day, int month, int year)
+        {
+            //TODO error exception if the date is invalid
+            int a = (14 - month) / 12;
+            int y = year - a;
+            int m = month + 12 * a - 2;
+            int d = (day + y + y / 4 - y / 100 + y / 400 + (31 * m) / 12) % 7;
+            return d;
+        }
+
 
     }
 }
