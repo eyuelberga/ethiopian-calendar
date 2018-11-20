@@ -29,5 +29,27 @@ namespace EthiopianCalendar
                 yield return i % 7;
             }
         }
+
+        /// <summary>
+        /// terator for the month dates.
+        /// </summary>
+        /// <returns>an iterator for date objects starting from the start of the 
+        /// month to the end</returns>
+        /// <param name="month">Month.</param>
+        /// <param name="year">Year.</param>
+        public IEnumerable<Date> IterMonthDates(int month, int year)
+        {
+            int dayIncrement = 1;
+            while (EtDateValidator.IsValid(dayIncrement, month, year))
+            {
+
+                Date date = new Date(dayIncrement, month, year);
+                yield return date;
+                dayIncrement++;
+            }
+
+
+
+        }
     }
 }
