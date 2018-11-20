@@ -1,10 +1,10 @@
 ﻿using System;
-namespace EthiopianCalendarLib
+namespace EthiopianCalendar
 {
-    public class Converter
+    /// <summary>
+    /// Convert Gregorian to Ethiopian and Viceversa, also include methods for JDN(Julian Date Number) calculation.
+    /// </summary>
+    public static class Converter
     {
-        public Converter()
-        {
-        }
     }
 }
