@@ -17,7 +17,10 @@ namespace EthiopianCalendar
         public static int GregorianToJDN(int day = 1, int month = 1, int year = 1)
         {
             //TODO error exception if not valid gregorian date
-            return (1461 * (year + 4800 + (month - 14) / 12)) / 4 + (367 * (month - 2 - 12 * ((month - 14) / 12))) / 12 - (3 * ((year + 4900 + (month - 14) / 12) / 100)) / 4 + day - 32075;
+            return ((int)JDN_CONST._1461 * (year + (int)JDN_CONST._4800 + (month - (int)JDN_CONST._14) / (int)JDN_CONST._12))
+                / (int)JDN_CONST._4 + ((int)JDN_CONST._367 * (month - (int)JDN_CONST._2 - (int)JDN_CONST._12 * ((month - (int)JDN_CONST._14) / (int)JDN_CONST._12))) /
+                (int)JDN_CONST._12 - ((int)JDN_CONST._3 * ((year + (int)JDN_CONST._4900 + (month - (int)JDN_CONST._14) / (int)JDN_CONST._12) / (int)JDN_CONST._100)) /
+                (int)JDN_CONST._4 + day - (int)JDN_CONST._32075;
 
         }
 

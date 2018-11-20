@@ -1,5 +1,5 @@
 ﻿using System;
-namespace EthiopianCalendarLib
+namespace EthiopianCalendar
 {
     public enum JDN_CONST
     {
