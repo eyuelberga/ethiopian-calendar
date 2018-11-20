@@ -87,5 +87,18 @@ namespace EthiopianCalendar
             return 0;
 
         }
+
+        /// <summary>
+        /// Convert Gregorian Date into Ethiopian Date
+        /// </summary>
+        /// <returns>The Ethiopian Date array in the format [Day, Month, Year]</returns>
+        /// <param name="day">Day.</param>
+        /// <param name="month">Month.</param>
+        /// <param name="year">Year.</param>
+        public static int[] GregorianToEthiopian(int day, int month, int year)
+        {
+            int jdn = GregorianToJDN(day, month, year);
+            return JDNToEthiopian(jdn);
+        }
     }
 }
