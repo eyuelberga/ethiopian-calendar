@@ -55,12 +55,12 @@ namespace EthiopianCalendar
         /// Possible values are JDN_EPOCH_OFFSET.AMETE_MIHRET or DN_EPOCH_OFFSET.AMETE_ALEM </param>
         public static int[] JDNToEthiopian(int jdn, int era = (int)JDN_EPOCH_OFFSET.AMETE_MIHRET)
         {
-            int r = (jdn - era) % 1461;
-            int n = (int)((r % 365) + 365 * Math.Floor((double)r / 1460));
+            int r = (jdn - era) % (int)JDN_CONST._1461;
+            int n = (int)((r % (int)JDN_CONST._365) + (int)JDN_CONST._365 * Math.Floor((double)r / (int)JDN_CONST._1460));
 
-            int year = (int)(4 * Math.Floor((double)(jdn - era) / 1461) + Math.Floor((double)r / 365) - Math.Floor((double)r / 1460));
-            int month = (int)(Math.Floor((double)n / 30) + 1);
-            int day = n % 30 + 1;
+            int year = (int)((int)JDN_CONST._4 * Math.Floor((double)(jdn - era) / (int)JDN_CONST._1461) + Math.Floor((double)r / (int)JDN_CONST._365) - Math.Floor((double)r / (int)JDN_CONST._1460));
+            int month = (int)(Math.Floor((double)n / (int)JDN_CONST._30) + (int)JDN_CONST._1);
+            int day = n % (int)JDN_CONST._30 + (int)JDN_CONST._1;
             int[] date = { day, month, year };
             return date;
         }
