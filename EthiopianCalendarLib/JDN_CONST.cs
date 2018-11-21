@@ -1,6 +1,9 @@
 ﻿using System;
 namespace EthiopianCalendar
 {
+    /// <summary>
+    /// constants used for JDN conversion
+    /// </summary>
     public enum JDN_CONST
     {
         _1460 = 1460,
