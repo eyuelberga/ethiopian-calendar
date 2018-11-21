@@ -1,8 +1,15 @@
 ﻿using System;
 namespace EthiopianCalendar
 {
+    /// <summary>
+    /// A child class of Calender, used for generating text based calendar on the console.
+    /// </summary>
     public class TextCalendar : Calendar
     {
+        /// <summary>
+        /// Formats the week header.
+        /// </summary>
+        /// <returns>The week header.</returns>
         public string FormatWeekHeader()
         {
             string header = "";
@@ -12,6 +19,12 @@ namespace EthiopianCalendar
             }
             return header;
         }
+        /// <summary>
+        /// Formats the month dates.
+        /// </summary>
+        /// <returns>The month date.</returns>
+        /// <param name="month">Month.</param>
+        /// <param name="year">Year.</param>
         public string FormatMonthDate(int month, int year)
         {
             string dates = "";
@@ -34,14 +47,31 @@ namespace EthiopianCalendar
 
             return dates;
         }
+        /// <summary>
+        /// Formats the month header.
+        /// </summary>
+        /// <returns>The month header.</returns>
+        /// <param name="month">Month.</param>
+        /// <param name="year">Year.</param>
         public string FormatMonthHeader(int month, int year)
         {
             return $"{EthiopianLocalized.GetMonthName(month)}, {year}";
         }
+        /// <summary>
+        /// Prints the month calendar.
+        /// </summary>
+        /// <returns>The month calendar.</returns>
+        /// <param name="month">Month.</param>
+        /// <param name="year">Year.</param>
         public string PrintMonthCalendar(int month, int year)
         {
             return $"{FormatMonthHeader(month, year)}\n\n{FormatWeekHeader()}\n{FormatMonthDate(month, year)}\n";
         }
+        /// <summary>
+        /// Prints the year calendar.
+        /// </summary>
+        /// <returns>The year calendar.</returns>
+        /// <param name="year">Year.</param>
         public string PrintYearCalendar(int year)
         {
             string yearCalendar = "";
