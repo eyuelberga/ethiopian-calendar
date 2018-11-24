@@ -60,7 +60,7 @@ namespace EthiopianCalendar
             IEnumerable<Date> dates = IterMonthDates(month, year);
             IEnumerator<Date> date = dates.GetEnumerator();
             date.MoveNext();
-            Date[,] matrix = NullMatrix(new Date[6, 7]);
+            Date[,] matrix = new Date[6, 7];
             int weekNum = date.Current.WeekDayNumber;
             for (int row = 0; row < matrix.GetLength(0); row++)
             {
@@ -94,23 +94,6 @@ namespace EthiopianCalendar
             return matrix;
         }
 
-        /// <summary>
-        /// Takes a two dimensional array and converts all the values into nulls.
-        /// </summary>
-        /// <returns>The matrix with all null values</returns>
-        /// <param name="matrix">Matrix. Two dimensional array</param>
-        public Date[,] NullMatrix(Date[,] matrix)
-        {
-            for (int row = 0; row < matrix.GetLength(0); row++)
-            {
-
-                for (int col = 0; col < matrix.GetLength(1); col++)
-                {
-                    matrix[row, col] = null;
-                }
-
-            }
-            return matrix;
-        }
+       
     }
 }
