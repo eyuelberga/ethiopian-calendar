@@ -16,11 +16,18 @@ namespace EthiopianCalendar
         /// <param name="year">Year.</param>
         public static int GregorianToJDN(int day = 1, int month = 1, int year = 1)
         {
-            //TODO error exception if not valid gregorian date
+            if (day > 31 || day < 1)
+            {
+                throw new InvalidDayException();
+            }
+            if (month > 12 || month < 1)
+            {
+                throw new InvalidGMonthException();
+            }
             return ((int)JDN_CONST._1461 * (year + (int)JDN_CONST._4800 + (month - (int)JDN_CONST._14) / (int)JDN_CONST._12))
-                / (int)JDN_CONST._4 + ((int)JDN_CONST._367 * (month - (int)JDN_CONST._2 - (int)JDN_CONST._12 * ((month - (int)JDN_CONST._14) / (int)JDN_CONST._12))) /
-                (int)JDN_CONST._12 - ((int)JDN_CONST._3 * ((year + (int)JDN_CONST._4900 + (month - (int)JDN_CONST._14) / (int)JDN_CONST._12) / (int)JDN_CONST._100)) /
-                (int)JDN_CONST._4 + day - (int)JDN_CONST._32075;
+           / (int)JDN_CONST._4 + ((int)JDN_CONST._367 * (month - (int)JDN_CONST._2 - (int)JDN_CONST._12 * ((month - (int)JDN_CONST._14) / (int)JDN_CONST._12))) /
+           (int)JDN_CONST._12 - ((int)JDN_CONST._3 * ((year + (int)JDN_CONST._4900 + (month - (int)JDN_CONST._14) / (int)JDN_CONST._12) / (int)JDN_CONST._100)) /
+           (int)JDN_CONST._4 + day - (int)JDN_CONST._32075;
 
         }
 
@@ -79,11 +86,19 @@ namespace EthiopianCalendar
         {
             if (EtDateValidator.IsValid(day, month, year))
             {
-                return (int)(era + (int)JDN_CONST._365 + (int)JDN_CONST._365 * 
-                             (year - (int)JDN_CONST._1) + Math.Floor((double)year / 
+                return (int)(era + (int)JDN_CONST._365 + (int)JDN_CONST._365 *
+                             (year - (int)JDN_CONST._1) + Math.Floor((double)year /
                              (int)JDN_CONST._4) + (int)JDN_CONST._30 * month + day - (int)JDN_CONST._31);
             }
-            //TODO error exception
+            if (day > 30 || day < 1)
+            {
+                throw new InvalidDayException();
+            }
+            if( month > 13 || month <1)
+            {
+                throw new InvalidMonthException();
+            }
+
             return 0;
 
         }
@@ -113,11 +128,7 @@ namespace EthiopianCalendar
                 int jdn = GregorianToJDN(dateArray[0], dateArray[1], dateArray[2]);
                 return JDNToEthiopian(jdn);
             }
-            else
-            {
-                // TODO Throw an error exception
-                return null;
-            }
+            throw new InvalidDateArray();
         }
 
         /// <summary>
@@ -151,11 +162,7 @@ namespace EthiopianCalendar
                 int jdn = EthiopianToJDN(dateArray[0], dateArray[1], dateArray[2], era);
                 return JDNToGregorian(jdn);
             }
-            else
-            {
-                // TODO Throw an error exception
-                return null;
-            }
+            throw new InvalidDateArray();
 
         }
 
@@ -168,7 +175,14 @@ namespace EthiopianCalendar
         /// <param name="year">Year.</param>
         public static int GetWeekDayNumber(int day, int month, int year)
         {
-            //TODO error exception if the date is invalid
+            if (day > 31 || day < 1)
+            {
+                throw new InvalidDayException();
+            }
+            if (month > 12 || month < 1)
+            {
+                throw new InvalidGMonthException();
+            }
             int a = (14 - month) / 12;
             int y = year - a;
             int m = month + 12 * a - 2;

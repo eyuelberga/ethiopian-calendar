@@ -43,6 +43,7 @@
     <Compile Include="RICHARDS_PARA.cs" />
     <Compile Include="TextCalendar.cs" />
     <Compile Include="JDN_CONST.cs" />
+    <Compile Include="Exceptions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
