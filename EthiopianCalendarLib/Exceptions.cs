@@ -36,4 +36,20 @@ namespace EthiopianCalendar
         {
         }
     }
+    public class InvalidWeekIndex : Exception
+    {
+        public InvalidWeekIndex()
+            :base("Week index out of bounds")
+        {
+
+        }
+    }
+    public class InvalidMonthIndex : Exception
+    {
+        public InvalidMonthIndex()
+            : base("Month index out of bounds")
+        {
+
+        }
+    }
 }

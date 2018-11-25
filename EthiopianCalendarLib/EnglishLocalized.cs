@@ -15,15 +15,11 @@ namespace EthiopianCalendar
         {
             string[] WEEK_NAMES = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
 
-            if (weekDay > WEEK_NAMES.Length)
+            if (weekDay >= WEEK_NAMES.Length)
             {
-                //TODO error exception
-                return null;
+                throw new InvalidWeekIndex();
             }
-            else
-            {
                 return WEEK_NAMES[weekDay];
-            }
         }
         /// <summary>
         /// Gets the name of the month.
@@ -49,15 +45,12 @@ namespace EthiopianCalendar
 
             };
 
-            if (month > MONTH_NAMES.Length)
+            if (month >= MONTH_NAMES.Length)
             {
-                //TODO error exception
-                return null;
+                throw new InvalidMonthIndex();
             }
-            else
-            {
+      
                 return MONTH_NAMES[month];
-            }
 
 
         }
@@ -86,13 +79,10 @@ namespace EthiopianCalendar
 
             if (month > MONTH_NAMES.Length)
             {
-                //TODO error exception
-                return null;
+                throw new InvalidMonthIndex();
             }
-            else
-            {
+         
                 return MONTH_NAMES[month];
-            }
         }
 
     }
