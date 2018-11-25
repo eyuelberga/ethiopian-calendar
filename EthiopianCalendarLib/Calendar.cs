@@ -64,6 +64,7 @@ namespace EthiopianCalendar
             date.MoveNext();
             Date[,] matrix = new Date[ROW, COL];
             int weekNum = date.Current.WeekDayNumber;
+            // iterate and fill in the matrix with date objects
             for (int row = 0; row < matrix.GetLength(0); row++)
             {
                 for (int col = 0; col < matrix.GetLength(1) && date.MoveNext(); col++)
