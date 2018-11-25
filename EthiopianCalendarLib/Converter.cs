@@ -89,11 +89,11 @@ namespace EthiopianCalendar
             {
                 throw new InvalidDayException();
             }
-            if( EtDateValidator.IsValidMonthRange(month))
+            if(!EtDateValidator.IsValidMonthRange(month))
             {
                 throw new InvalidMonthException();
             }
-            if (EtDateValidator.IsValidPagumeDayRange(day,month))
+            if (!EtDateValidator.IsValidPagumeDayRange(day,month))
             {
                 throw new InvalidPagumeDayException();
             }
