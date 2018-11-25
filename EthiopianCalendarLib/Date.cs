@@ -48,9 +48,17 @@ namespace EthiopianCalendar
                 WeekDayNumber = Converter.EthiopianWeekDayNumber(day, month, year);
                 Special = Holiday.IsHoliday(this) ? Holiday.HolidayName(this) : null;
             }
-            else
+            if (!EtDateValidator.IsValidDayRange(day))
             {
-                //TODO exeption error invalid date 
+                throw new InvalidDayException();
+            }
+            if (!EtDateValidator.IsValidMonthRange(month))
+            {
+                throw new InvalidMonthException();
+            }
+            if (!EtDateValidator.IsValidPagumeDayRange(day, month))
+            {
+                throw new InvalidPagumeDayException();
             }
 
         }
