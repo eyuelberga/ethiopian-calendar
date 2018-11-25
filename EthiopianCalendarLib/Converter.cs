@@ -99,8 +99,6 @@ namespace EthiopianCalendar
                 throw new InvalidMonthException();
             }
 
-            return 0;
-
         }
 
         /// <summary>
