@@ -17,13 +17,10 @@ namespace EthiopianCalendar
 
             if (weekDay >= WEEK_NAMES.Length)
             {
-                //TODO error exception
-                return null;
+                throw new InvalidWeekIndexException();
             }
-            else
-            {
+           
                 return WEEK_NAMES[weekDay];
-            }
         }
         /// <summary>
         /// Gets the name of the month.
@@ -51,7 +48,7 @@ namespace EthiopianCalendar
 
             if (month >= MONTH_NAMES.Length)
             {
-                throw new InvalidMonthIndex();
+                throw new InvalidMonthIndexException();
             }
 
                 return MONTH_NAMES[month];
@@ -84,7 +81,7 @@ namespace EthiopianCalendar
 
             if (month > MONTH_NAMES.Length)
             {
-                throw new InvalidMonthIndex();
+                throw new InvalidMonthIndexException();
             }
                 return MONTH_NAMES[month];
         }

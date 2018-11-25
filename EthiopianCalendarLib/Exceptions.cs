@@ -1,6 +1,9 @@
 ﻿using System;
 namespace EthiopianCalendar
 {
+    /// <summary>
+    /// Invalid month exception.
+    /// </summary>
     public class InvalidMonthException : Exception
     {
         public InvalidMonthException()
@@ -8,6 +11,9 @@ namespace EthiopianCalendar
         {
         }
     }
+    /// <summary>
+    /// Invalid day exception.
+    /// </summary>
     public class InvalidDayException : Exception
     {
         public InvalidDayException()
@@ -15,6 +21,9 @@ namespace EthiopianCalendar
         {
         }
     }
+    /// <summary>
+    /// Invalid pagume day exception.
+    /// </summary>
     public class InvalidPagumeDayException : Exception
     {
         public InvalidPagumeDayException()
@@ -22,6 +31,9 @@ namespace EthiopianCalendar
         {
         }
     }
+    /// <summary>
+    /// Invalid gregorian month exception.
+    /// </summary>
     public class InvalidGMonthException : Exception
     {
         public InvalidGMonthException()
@@ -29,24 +41,33 @@ namespace EthiopianCalendar
         {
         }
     }
-    public class InvalidDateArray : Exception
+    /// <summary>
+    /// Invalid date array exception.
+    /// </summary>
+    public class InvalidDateArrayException : Exception
     {
-        public InvalidDateArray()
+        public InvalidDateArrayException()
             : base("Invalid Date Array Length; valid length is 3")
         {
         }
     }
-    public class InvalidWeekIndex : Exception
+    /// <summary>
+    /// Invalid week index exception.
+    /// </summary>
+    public class InvalidWeekIndexException : Exception
     {
-        public InvalidWeekIndex()
+        public InvalidWeekIndexException()
             :base("Week index out of bounds")
         {
 
         }
     }
-    public class InvalidMonthIndex : Exception
+    /// <summary>
+    /// Invalid month index exception.
+    /// </summary>
+    public class InvalidMonthIndexException : Exception
     {
-        public InvalidMonthIndex()
+        public InvalidMonthIndexException()
             : base("Month index out of bounds")
         {
 

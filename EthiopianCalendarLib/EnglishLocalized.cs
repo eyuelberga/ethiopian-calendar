@@ -17,7 +17,7 @@ namespace EthiopianCalendar
 
             if (weekDay >= WEEK_NAMES.Length)
             {
-                throw new InvalidWeekIndex();
+                throw new InvalidWeekIndexException();
             }
                 return WEEK_NAMES[weekDay];
         }
@@ -47,7 +47,7 @@ namespace EthiopianCalendar
 
             if (month >= MONTH_NAMES.Length)
             {
-                throw new InvalidMonthIndex();
+                throw new InvalidMonthIndexException();
             }
       
                 return MONTH_NAMES[month];
@@ -79,7 +79,7 @@ namespace EthiopianCalendar
 
             if (month > MONTH_NAMES.Length)
             {
-                throw new InvalidMonthIndex();
+                throw new InvalidMonthIndexException();
             }
          
                 return MONTH_NAMES[month];
