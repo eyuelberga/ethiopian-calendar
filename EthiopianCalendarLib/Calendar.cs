@@ -8,6 +8,8 @@ namespace EthiopianCalendar
     public class Calendar
     {
         public int FirstWeekDay = 0;
+        const int ROW = 6;
+        const int COL = 7;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:EthiopianCalendar.Calendar"/> class.
@@ -60,7 +62,7 @@ namespace EthiopianCalendar
             IEnumerable<Date> dates = IterMonthDates(month, year);
             IEnumerator<Date> date = dates.GetEnumerator();
             date.MoveNext();
-            Date[,] matrix = new Date[6, 7];
+            Date[,] matrix = new Date[ROW, COL];
             int weekNum = date.Current.WeekDayNumber;
             for (int row = 0; row < matrix.GetLength(0); row++)
             {
