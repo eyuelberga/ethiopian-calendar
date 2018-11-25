@@ -84,20 +84,27 @@ namespace EthiopianCalendar
         /// Possible values are JDN_EPOCH_OFFSET.AMETE_MIHRET or JDN_EPOCH_OFFSET.AMETE_ALEM </param>
         public static int EthiopianToJDN(int day, int month, int year, int era = (int)JDN_EPOCH_OFFSET.AMETE_MIHRET)
         {
+           
+            if (!EtDateValidator.IsValidDayRange(day))
+            {
+                throw new InvalidDayException();
+            }
+            if( EtDateValidator.IsValidMonthRange(month))
+            {
+                throw new InvalidMonthException();
+            }
+            if (EtDateValidator.IsValidPagumeDayRange(day,month))
+            {
+                throw new InvalidPagumeDayException();
+            }
             if (EtDateValidator.IsValid(day, month, year))
             {
                 return (int)(era + (int)JDN_CONST._365 + (int)JDN_CONST._365 *
                              (year - (int)JDN_CONST._1) + Math.Floor((double)year /
                              (int)JDN_CONST._4) + (int)JDN_CONST._30 * month + day - (int)JDN_CONST._31);
             }
-            if (day > 30 || day < 1)
-            {
-                throw new InvalidDayException();
-            }
-            if( month > 13 || month <1)
-            {
-                throw new InvalidMonthException();
-            }
+            //TODO fix this return 
+            return 0;
 
         }
 

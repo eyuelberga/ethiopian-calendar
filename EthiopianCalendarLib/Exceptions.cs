@@ -15,6 +15,13 @@ namespace EthiopianCalendar
         {
         }
     }
+    public class InvalidPagumeDayException : Exception
+    {
+        public InvalidPagumeDayException()
+            : base("Invalid Pagume Day Range; valid range is 1-6")
+        {
+        }
+    }
     public class InvalidGMonthException : Exception
     {
         public InvalidGMonthException()
